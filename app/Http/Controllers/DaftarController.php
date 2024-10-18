@@ -30,8 +30,7 @@ class DaftarController extends Controller
     $daftar->status = $request->status;
     $daftar->save();
 
-    return ("data sukses di kirim");
-}
+    return redirect('/show');}
 
 public function show() {
     $daftar = Daftar::paginate(3);
@@ -40,7 +39,6 @@ public function show() {
 
 public function edit($id) {
     $daftar = Daftar::findOrFail($id);
-
     // @dd($daftar);
     return view("editdaftar", compact("daftar"));
 }
